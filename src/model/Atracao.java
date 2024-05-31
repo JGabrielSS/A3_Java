@@ -13,5 +13,4 @@ public class Atracao {
         this.capacidade_max = capacidade_max;
     }
 
-    gi
 }

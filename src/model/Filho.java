@@ -38,4 +38,12 @@ public class Filho {
         this.data_nasc = data_nasc;
     }
 
+    @Override
+    public String toString() {
+        return "Filho{" +
+                "\nmatricula=" + matricula +
+                "\nnome='" + nome + '\'' +
+                "\ndata_nasc='" + data_nasc + '\'' +
+                '}';
+    }
 }
