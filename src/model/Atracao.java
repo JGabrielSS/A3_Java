@@ -83,17 +83,17 @@ public class Atracao {
     public int alterarTarifa() {
         int valorSelecionado = 0, selecao = 0;
 
-        System.out.print("""
-                            ----- Selecione o número correspondente à tarifa que deseja alterar -----
-                            \t 1 - Tarifa de 15 min
-                            \t 2 - Tarifa de 30 min
-                            \t 3 - Tarifa de 45 min
-                            \t 4 - Tarifa de 60 min
-                            \t 5 - Tarifa de 75 min
-                            \t 6 - Tarifa de 90 min
-                            \t 7 - Tarifa de 105 min
-                            \t 8 - Tarifa de 120 min
-                        """);
+        Teclado.lerInt("""
+                    ----- Selecione o número correspondente à tarifa que deseja alterar -----
+                    \t 1 - Tarifa de 15 min
+                    \t 2 - Tarifa de 30 min
+                    \t 3 - Tarifa de 45 min
+                    \t 4 - Tarifa de 60 min
+                    \t 5 - Tarifa de 75 min
+                    \t 6 - Tarifa de 90 min
+                    \t 7 - Tarifa de 105 min
+                    \t 8 - Tarifa de 120 min
+                """);
 
         if (selecao == 1) {
             valorSelecionado = Teclado.lerInt("Insira o novo valor para a tarifa 1: ");
@@ -104,19 +104,19 @@ public class Atracao {
         } else if (selecao == 3) {
             valorSelecionado = Teclado.lerInt("Insira o novo valor para a tarifa 3: ");
             this.setTarifa30(valorSelecionado);
-        }else if (selecao == 4) {
+        } else if (selecao == 4) {
             valorSelecionado = Teclado.lerInt("Insira o novo valor para a tarifa 4: ");
             this.setTarifa30(valorSelecionado);
-        }else if (selecao == 5) {
+        } else if (selecao == 5) {
             valorSelecionado = Teclado.lerInt("Insira o novo valor para a tarifa 5: ");
             this.setTarifa30(valorSelecionado);
-        }else if (selecao == 6) {
+        } else if (selecao == 6) {
             valorSelecionado = Teclado.lerInt("Insira o novo valor para a tarifa 6: ");
             this.setTarifa30(valorSelecionado);
-        }else if (selecao == 7) {
+        } else if (selecao == 7) {
             valorSelecionado = Teclado.lerInt("Insira o novo valor para a tarifa 7: ");
             this.setTarifa30(valorSelecionado);
-        }else if (selecao == 8) {
+        } else if (selecao == 8) {
             valorSelecionado = Teclado.lerInt("Insira o novo valor para a tarifa 8: ");
             this.setTarifa30(valorSelecionado);
         }

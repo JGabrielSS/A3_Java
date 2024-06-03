@@ -137,36 +137,44 @@ SET SQL_SAFE_UPDATES = 0;
 
 -- delete from telefone where telefone.cpfPessoa = "12345678904";
 
-select * from Pessoa inner join telefone where pessoa.cpf = telefone.cpfPessoa;
-insert into filho(nome, data_nasc) values ("Roberto Carlos", '1979-12-25'), ("Roberto Dinamite", '1999-04-07');
-select * from filho;
+-- select * from Pessoa inner join telefone where pessoa.cpf = telefone.cpfPessoa;
+-- insert into filho(nome, data_nasc) values ("Roberto Carlos", '1979-12-25'), ("Roberto Dinamite", '1999-04-07');
+-- select * from filho;
 -- select atracao.nome, pessoa.nome, atendente.usuario, atendente.senha, telefone.principal from atendente inner join atracao inner join pessoa inner join telefone where atendente.cpfPessoa = pessoa.cpf and atendente.cpfPessoa = pessoa.cpf and atendente.idAtracao = atracao.idAtracao;
 
 -- UPDATE pessoa inner join atendente SET usuario = "teste", senha = "teste" WHERE pessoa.cpf =  atendente.cpfPessoa AND atendente.cpfPessoa = "12345678905";
 
-select * from pessoa inner join atendente where pessoa.cpf = atendente.cpfPessoa;
+-- select * from pessoa inner join atendente where pessoa.cpf = atendente.cpfPessoa;
 
-select * from pessoa inner join responsavel where pessoa.cpf = responsavel.cpfPessoa;
+-- select * from pessoa inner join responsavel where pessoa.cpf = responsavel.cpfPessoa;
 
-insert into filiacao (matricula, cpfResponsavel) values (1, "12345678910"), (2, "12345678909");
+-- insert into filiacao (matricula, cpfResponsavel) values (1, "12345678910"), (2, "12345678909");
 
-SELECT filho.nome as nomeFilho, pessoa.nome as nomePai FROM filho
-INNER JOIN filiacao
-INNER JOIN responsavel
-INNER JOIN pessoa
-WHERE filho.matricula = filiacao.matricula
-AND filiacao.cpfResponsavel = responsavel.cpfPessoa
-AND responsavel.cpfPessoa = pessoa.cpf;
+ SELECT filho.nome as nomeFilho, pessoa.nome as nomePai FROM filho
+ INNER JOIN filiacao
+ INNER JOIN responsavel
+ INNER JOIN pessoa
+ WHERE filho.matricula = filiacao.matricula
+ AND filiacao.cpfResponsavel = responsavel.cpfPessoa
+ AND responsavel.cpfPessoa = pessoa.cpf;
 
-select * from filho;
+-- select * from filho;
 
 -- select max(idResponsavel) as lastResp inner join pessoa from responsavel;
-select max(matricula) as lastFilho from filho;
-select cpfPessoa from responsavel where idResponsavel = 3;
-select * from responsavel;
+-- select max(matricula) as lastFilho from filho;
+-- select cpfPessoa from responsavel where idResponsavel = 3;
+-- select * from responsavel;
 -- SELECT * FROM Pessoa INNER JOIN telefone WHERE pessoa.cpf = telefone.cpfPessoa AND pessoa.nome = "Joao gabriel";
 -- select * from atracao;
 -- select * from telefone;
 -- UPDATE atracao SET capacidade_max = 15 WHERE nome = "Piscina de bolinhas";
 -- INSERT INTO telefone (principal, idPessoa) VALUES("21975996009", pessoa.cpf = "12345678901");
 -- update telefone inner join pessoa set principal = "21975996008" where telefone.idPessoa = pessoa.idPessoa and pessoa.cpf = "12345678900";
+
+-- insert into pessoa (nome, email, cpf, data_nasc) values ("joao gabriel", );
+
+select * from atendente inner join pessoa inner join telefone  where atendente.cpfPessoa = pessoa.cpf and pessoa.cpf = telefone.cpfPessoa;
+
+select * from responsavel inner join pessoa inner join telefone  where responsavel.cpfPessoa = pessoa.cpf and pessoa.cpf = telefone.cpfPessoa;
+
+select * from pessoa inner join telefone where pessoa.cpf = telefone.cpfPessoa;

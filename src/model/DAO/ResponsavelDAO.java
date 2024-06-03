@@ -76,17 +76,18 @@ public class ResponsavelDAO {
             System.out.println(e.getMessage());
         }
         responsavel = new Responsavel(nome, email, cpf, data_nasc);
+
         return responsavel;
     }
 
-    public static Responsavel consultar(String nome) {
+    public static Responsavel consultar(String cpf) {
         Responsavel responsavel = null;
 
-        String sql = "SELECT * FROM pessoa INNER JOIN atendente WHERE pessoa.cpf = atendente.cpfPessoa AND pessoa.nome = ?";
+        String sql = "SELECT * FROM pessoa INNER JOIN atendente WHERE pessoa.cpf = atendente.cpfPessoa AND pessoa.cpf = ?";
 
         try {
 
-            Pessoa pessoa = PessoaDAO.consultarPessoa(nome);
+            Pessoa pessoa = PessoaDAO.consultarPessoa(cpf);
 
             Conexao conex = new Conexao(
                     "jdbc:mysql://localhost:3306/A3_JA",
@@ -99,7 +100,7 @@ public class ResponsavelDAO {
 
             PreparedStatement cmd = conn.prepareStatement(sql);
 
-            cmd.setString(1, nome);
+            cmd.setString(1, cpf);
 
             ResultSet rs = cmd.executeQuery();
 

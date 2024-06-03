@@ -47,6 +47,7 @@ public class AtendenteDAO {
             System.out.println(e.getMessage());
         }
         atendente = new Atendente(nome, email, cpf, data_nasc, usuario, senha);
+        System.out.println("Atendente criado com sucesso!");
         return atendente;
     }
 
@@ -81,30 +82,31 @@ public class AtendenteDAO {
             System.out.println(e.getMessage());
         }
         atendente = new Atendente(nome, email, cpf, data_nasc, usuario, senha);
+        System.out.println("Atendente criado com sucesso!");
         return atendente;
     }
 
-    public static Atendente consultar(String nome) {
+    public static Atendente consultar(String cpf) {
         Atendente atendente = null;
 
-        String sql = "SELECT * FROM pessoa INNER JOIN atendente WHERE pessoa.cpf = atendente.cpfPessoa AND pessoa.nome = ?";
+        String sql = "SELECT * FROM pessoa INNER JOIN atendente WHERE pessoa.cpf = atendente.cpfPessoa AND pessoa.cpf = ?";
 
         try {
 
-            Pessoa pessoa = PessoaDAO.consultarPessoa(nome);
+            Pessoa pessoa = PessoaDAO.consultarPessoa(cpf);
 
-            Conexao conex = new Conexao(
+            Conexao conexao = new Conexao(
                     "jdbc:mysql://localhost:3306/A3_JA",
                     "com.mysql.cj.jdbc.Driver",
                     "root",
                     "root"
             );
 
-            Connection conn = conex.conectar();
+            Connection conn = conexao.conectar();
 
             PreparedStatement cmd = conn.prepareStatement(sql);
 
-            cmd.setString(1, nome);
+            cmd.setString(1, cpf);
 
             ResultSet rs = cmd.executeQuery();
 
@@ -192,4 +194,52 @@ public class AtendenteDAO {
         return atendente;
     }
 
+    public static Atendente login(String usuario, String senha) {
+        Atendente atendente = null;
+
+        String sql = "SELECT * FROM atendente WHERE usuario = ? AND senha = ?";
+        try {
+
+            Conexao conexao = new Conexao(
+                    "jdbc:mysql://localhost:3306/A3_JA",
+                    "com.mysql.cj.jdbc.Driver",
+                    "root",
+                    "root"
+            );
+
+            Connection conn = conexao.conectar();
+
+            PreparedStatement cmd = conn.prepareStatement(sql);
+
+            cmd.setString(1, usuario);
+            cmd.setString(2, senha);
+
+            ResultSet rs = cmd.executeQuery();
+
+            if (rs.next()) {
+                Pessoa pessoa = PessoaDAO.consultarPessoa(rs.getString("cpfPessoa"));
+                Pessoa pessoaS = Sessao.pessoa;
+
+                atendente = new Atendente();
+                atendente.setNome(pessoaS.getNome());
+                atendente.setEmail(pessoaS.getEmail());
+                atendente.setCpf(pessoaS.getCpf());
+                atendente.setData_nasc(pessoaS.getData_nasc());
+                atendente.setUsuario(rs.getString("usuario"));
+                atendente.setSenha(rs.getString("senha"));
+
+                Sessao.atendente = atendente;
+                System.out.println("Bem-vindo, " + atendente.getNome() + "!");
+            } else {
+                System.out.println("Usuário e/ou senha incorretos");
+            }
+
+            rs.close();
+            cmd.close();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return atendente;
+    }
 }
