@@ -15,15 +15,15 @@ public class PessoaDAO {
         try {
             String sql = "INSERT INTO pessoa (nome, email, cpf, data_nasc)" + "VALUES (?, ?, ?, ?)";
 
-            Conexao conex = new Conexao("jdbc:mysql://localhost:3306/A3_JA", "com.mysql.cj.jdbc.Driver", "root", "root");
+            Conexao conexao = new Conexao("jdbc:mysql://localhost:3306/A3_JA", "com.mysql.cj.jdbc.Driver", "root", "root");
 
-            Connection conn = conex.conectar();
+            Connection conn = conexao.conectar();
 
             PreparedStatement cmd = conn.prepareStatement(sql);
             cmd.setString(1, nome);
             cmd.setString(2, email);
             cmd.setString(3, cpf);
-            cmd.setString(4, DataUtil.transformarData(data_nasc));
+            cmd.setString(4, data_nasc);
 
             cmd.execute();
 
@@ -39,6 +39,7 @@ public class PessoaDAO {
 
     public static Pessoa inserir(String nome, String email, String cpf, String data_nasc, String principal, String secundario) {
         Pessoa pessoa = null;
+
         try {
             String sql = "INSERT INTO pessoa (nome, email, cpf, data_nasc)" + "VALUES (?, ?, ?, ?)";
 
@@ -50,7 +51,7 @@ public class PessoaDAO {
             cmd.setString(1, nome);
             cmd.setString(2, email);
             cmd.setString(3, cpf);
-            cmd.setString(4, DataUtil.transformarData(data_nasc));
+            cmd.setString(4, data_nasc);
 
             cmd.execute();
 
@@ -64,19 +65,20 @@ public class PessoaDAO {
         return pessoa;
     }
 
-    public static Pessoa consultarPessoa(String nome) {
+    public static Pessoa consultarPessoa(String cpf) {
         Telefone telefone = null;
         Pessoa pessoa = null;
-        String sql = "SELECT * FROM Pessoa INNER JOIN telefone WHERE pessoa.cpf = telefone.cpfPessoa AND pessoa.nome = ?";
+
+        String sql = "SELECT * FROM pessoa INNER JOIN telefone WHERE pessoa.cpf = telefone.cpfPessoa AND pessoa.cpf = ?";
 
         try {
-            Conexao conex = new Conexao("jdbc:mysql://localhost:3306/A3_JA", "com.mysql.cj.jdbc.Driver", "root", "root");
+            Conexao conexao = new Conexao("jdbc:mysql://localhost:3306/A3_JA", "com.mysql.cj.jdbc.Driver", "root", "root");
 
-            Connection conn = conex.conectar();
+            Connection conn = conexao.conectar();
 
             PreparedStatement cmd = conn.prepareStatement(sql);
 
-            cmd.setString(1, nome);
+            cmd.setString(1, cpf);
 
             ResultSet rs = cmd.executeQuery();
 
@@ -87,7 +89,7 @@ public class PessoaDAO {
                 pessoa.setNome(rs.getString("nome"));
                 pessoa.setEmail(rs.getString("email"));
                 pessoa.setCpf(rs.getString("cpf"));
-                pessoa.setData_nasc(DataUtil.converterData(rs.getString("data_nasc")));
+                pessoa.setData_nasc(rs.getString("data_nasc"));
                 telefone.setPrincipal(rs.getString("principal"));
                 if ((rs.getString("secundario") == null)) {
                     telefone.setSecundario("vazio");
@@ -104,6 +106,7 @@ public class PessoaDAO {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        System.out.println(pessoa);
         return pessoa;
     }
 
@@ -118,7 +121,7 @@ public class PessoaDAO {
             Connection conn = conex.conectar();
 
             PreparedStatement cmd = conn.prepareStatement(sql);
-            cmd.setString(1, DataUtil.transformarData(data_nasc));
+            cmd.setString(1, data_nasc);
             cmd.setString(2, cpf);
 
             conn.setAutoCommit(false);
@@ -129,7 +132,8 @@ public class PessoaDAO {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-
+        consultarPessoa(cpf);
+        System.out.println("Alteração realizada com sucesso!");
         return pessoa;
     }
 
@@ -137,9 +141,9 @@ public class PessoaDAO {
         Pessoa pessoa = null;
         String sql = "DELETE FROM pessoa WHERE cpf = ?";
         try {
-            Conexao conex = new Conexao("jdbc:mysql://localhost:3306/A3_JA", "com.mysql.cj.jdbc.Driver", "root", "root");
+            Conexao conexao = new Conexao("jdbc:mysql://localhost:3306/A3_JA", "com.mysql.cj.jdbc.Driver", "root", "root");
 
-            Connection conn = conex.conectar();
+            Connection conn = conexao.conectar();
 
             PreparedStatement cmd = conn.prepareStatement(sql);
             cmd.setString(1, cpf);
@@ -152,6 +156,7 @@ public class PessoaDAO {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        System.out.println("Cadastro excluído com sucesso!");
         return pessoa;
     }
 

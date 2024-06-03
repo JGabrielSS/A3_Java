@@ -25,7 +25,7 @@ public class FilhoDAO {
 
             PreparedStatement cmd = conn.prepareStatement(sql);
             cmd.setString(1, nome);
-            cmd.setString(2, DataUtil.transformarData(data_nasc));
+            cmd.setString(2, data_nasc);
 
             cmd.execute();
 
