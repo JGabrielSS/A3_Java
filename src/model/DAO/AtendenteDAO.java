@@ -159,7 +159,7 @@ public class AtendenteDAO {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-
+        System.out.println("Credenciais de acesso atualizadas!");
         return atendente;
     }
 
@@ -192,6 +192,7 @@ public class AtendenteDAO {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        System.out.println("Atendente excluído");
         return atendente;
     }
 

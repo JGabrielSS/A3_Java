@@ -25,11 +25,11 @@ public class FilhoDAO {
 
             PreparedStatement cmd = conn.prepareStatement(sql);
             cmd.setString(1, nome);
-            cmd.setString(2, data_nasc);
+            cmd.setString(2, DataUtil.transformarData(data_nasc));
 
             cmd.execute();
 
-            Filho filhao = FilhoDAO.consultar(nome);
+            //Filho filhao = FilhoDAO.consultar(nome);
 
             conn.close();
 
@@ -60,7 +60,7 @@ public class FilhoDAO {
 
         try {
 
-            Responsavel responsavel = ResponsavelDAO.consultar("");
+            //Responsavel responsavel = ResponsavelDAO.consultar("");
             Responsavel resp = Sessao.responsavel;
 
             Conexao conex = new Conexao("jdbc:mysql://localhost:3306/A3_JA", "com.mysql.cj.jdbc.Driver", "root", "root");
@@ -89,6 +89,7 @@ public class FilhoDAO {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        System.out.println(filho);
         return filho;
     }
 
@@ -141,7 +142,7 @@ public class FilhoDAO {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-
+        System.out.println("Dados alterados com sucesso!");
         return filho;
     }
 

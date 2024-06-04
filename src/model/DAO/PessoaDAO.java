@@ -51,7 +51,7 @@ public class PessoaDAO {
             cmd.setString(1, nome);
             cmd.setString(2, email);
             cmd.setString(3, cpf);
-            cmd.setString(4, data_nasc);
+            cmd.setString(4, DataUtil.transformarData(data_nasc));
 
             cmd.execute();
 
@@ -89,7 +89,7 @@ public class PessoaDAO {
                 pessoa.setNome(rs.getString("nome"));
                 pessoa.setEmail(rs.getString("email"));
                 pessoa.setCpf(rs.getString("cpf"));
-                pessoa.setData_nasc(rs.getString("data_nasc"));
+                pessoa.setData_nasc(DataUtil.converterData(rs.getString("data_nasc")));
                 telefone.setPrincipal(rs.getString("principal"));
                 if ((rs.getString("secundario") == null)) {
                     telefone.setSecundario("vazio");
@@ -106,7 +106,7 @@ public class PessoaDAO {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        System.out.println(pessoa);
+        //System.out.println(pessoa);
         return pessoa;
     }
 
@@ -121,7 +121,7 @@ public class PessoaDAO {
             Connection conn = conex.conectar();
 
             PreparedStatement cmd = conn.prepareStatement(sql);
-            cmd.setString(1, data_nasc);
+            cmd.setString(1, DataUtil.transformarData(data_nasc));
             cmd.setString(2, cpf);
 
             conn.setAutoCommit(false);

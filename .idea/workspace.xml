@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="54daef7a-0289-49fa-9cb2-fcbefb32202b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/A3_Java.iml" beforeDir="false" afterPath="$PROJECT_DIR$/A3_Java.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/DAO/AtendenteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/DAO/AtendenteDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/DAO/FilhoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/DAO/FilhoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/DAO/FiliacaoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/DAO/FiliacaoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/DAO/PessoaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/DAO/PessoaDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/DAO/ResponsavelDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/DAO/ResponsavelDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/Teclado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/Teclado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/mysqlconnectorj8.0.31_20240520171026.jar" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 1
+}]]></component>
+  <component name="ProjectId" id="2hODKfsFRPGCbsl9doRv91uPoSM" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Estudos/Documents/A3_Java/src/util/mysql-connector-j-8.0.33.jar",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="controller.Main" />
+      <module name="A3_Java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="54daef7a-0289-49fa-9cb2-fcbefb32202b" name="Changes" comment="" />
+      <created>1717456173423</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1717456173423</updated>
+    </task>
+    <servers />
+  </component>
+</project>

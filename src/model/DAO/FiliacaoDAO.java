@@ -20,8 +20,6 @@ public class FiliacaoDAO {
                 "VALUES (?, ?)";
 
         try {
-
-
             Conexao conexao = new Conexao("jdbc:mysql://localhost:3306/A3_JA", "com.mysql.cj.jdbc.Driver", "root", "root");
 
             Connection conn = conexao.conectar();
@@ -37,6 +35,29 @@ public class FiliacaoDAO {
             System.out.println(e.getMessage());
         }
         System.out.println("Filiacao gerada com sucesso!");
+        return filiacao;
+    }
+
+    public static Filiacao excluir(int matricula, String cpfResponsavel) {
+        Filiacao filiacao = null;
+
+        String sql = "DELETE FROM filiacao WHERE matricula = ? AND cpfResponsavel = ?";
+
+        try {
+            Conexao conexao = new Conexao("jdbc:mysql://localhost:3306/A3_JA", "com.mysql.cj.jdbc.Driver", "root", "root");
+
+            Connection conn = conexao.conectar();
+
+            PreparedStatement cmd = conn.prepareStatement(sql);
+            cmd.setInt(1, matricula);
+            cmd.setString(2, cpfResponsavel);
+
+            cmd.executeUpdate();
+            conn.close();
+        }catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        System.out.println("Filiação excluída com sucesso!");
         return filiacao;
     }
 

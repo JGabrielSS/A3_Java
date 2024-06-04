@@ -10,7 +10,7 @@ public class Teclado {
 
     public static String lerTexto(String texto) {
         try {
-            System.out.print(texto);
+            System.out.println(texto);
             return teclado.readLine();
         } catch (IOException e) {
             return null;

@@ -119,11 +119,10 @@ public class ResponsavelDAO {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        System.out.println(responsavel);
         return responsavel;
     }
 
-    public static String auxResp() {
+    protected static String auxResp() {
         int maxResp = 0;
         String last_cpf = "";
 
